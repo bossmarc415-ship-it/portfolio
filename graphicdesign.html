@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graphic Design</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --orange:#FF8C00;
+    --dark:#1D1D1F;
+    --light:#6E6E73;
+}
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:linear-gradient(120deg,#ffffff,#fff7ed,#ffffff);
+    color:var(--dark);
+    padding:40px 8%;
+    min-height:100vh;
+    position:relative;
+    overflow-x:hidden;
+}
+
+/* FLOATING BACKGROUND */
+.shape{
+    position:fixed;
+    width:260px;
+    height:260px;
+    background:var(--orange);
+    opacity:0.08;
+    border-radius:50%;
+    filter:blur(50px);
+    z-index:-1;
+    animation:float 8s ease-in-out infinite;
+}
+
+.shape.one{
+    top:-80px;
+    left:-80px;
+}
+
+.shape.two{
+    bottom:-100px;
+    right:-80px;
+    animation-delay:2s;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(25px);}
+    100%{transform:translateY(0);}
+}
+
+/* BACK BUTTON */
+.back-btn{
+    display:inline-block;
+    margin-bottom:25px;
+    padding:12px 26px;
+    border:1px solid #eee;
+    color:var(--dark);
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:600;
+    background:white;
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    background:var(--orange);
+    color:white;
+    transform:translateY(-3px);
+}
+
+/* TITLE */
+h1{
+    font-size:2.6rem;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+h1 span{
+    color:var(--orange);
+}
+
+/* CARD */
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.card{
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(10px);
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* IMAGE */
+.card img{
+    width:100%;
+    max-width:400px;
+    border-radius:15px;
+    margin-top:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* TEXT */
+p{
+    color:var(--light);
+    margin-top:10px;
+    font-size:1.05rem;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+    h1{font-size:2rem;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- BACKGROUND SHAPES -->
+<div class="shape one"></div>
+<div class="shape two"></div>
+
+<a href="index.html" class="back-btn">← Back</a>
+
+<div class="container">
+
+    <h1>Graphic <span>Design</span></h1>
+
+    <div class="card">
+        <p>Here are my graphic design works.</p>
+
+        <img src="image/art5.png" alt="Graphic Design Work">
+    </div>
+
+</div>
+
+</body>
+</html>

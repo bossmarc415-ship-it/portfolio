@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Marc Portfolio | Digital Artist & UI/UX Designer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --orange:#FF8C00;
+    --dark:#1D1D1F;
+    --gray:#F5F5F7;
+    --light:#6E6E73;
+    --white:#FFFFFF;
+}
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    color:var(--dark);
+    background: linear-gradient(120deg,#ffffff,#fff7ed,#ffffff);
+    overflow-x:hidden;
+}
+
+/* FLOATING BACKGROUND SHAPES */
+.shape{
+    position:fixed;
+    border-radius:50%;
+    background:var(--orange);
+    opacity:0.08;
+    filter:blur(50px);
+    z-index:-1;
+    animation:float 8s ease-in-out infinite;
+}
+
+.shape.one{
+    width:300px;
+    height:300px;
+    top:-80px;
+    left:-80px;
+}
+
+.shape.two{
+    width:250px;
+    height:250px;
+    bottom:-80px;
+    right:-60px;
+    animation-delay:2s;
+}
+
+@keyframes float{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(25px);}
+    100%{transform:translateY(0px);}
+}
+
+/* NAV */
+nav{
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    background:rgba(255,255,255,0.8);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #eee;
+    z-index:1000;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:800;
+    color:var(--orange);
+    letter-spacing:1px;
+}
+
+/* NAV LINKS */
+.nav-links{
+    display:flex;
+    gap:12px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:var(--dark);
+    font-weight:500;
+    padding:10px 16px;
+    border-radius:12px;
+    border:1px solid #eee;
+    background:white;
+    transition:0.3s;
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+
+.nav-links a:hover{
+    background:var(--orange);
+    color:white;
+    transform:translateY(-3px);
+}
+
+/* HAMBURGER MENU BUTTON (Tago anay sa Desktop) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark);
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+/* HERO */
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 8%;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+/* BIG TITLE */
+.hero h1{
+    font-size:4.8rem;
+    line-height:1.05;
+    font-weight:800;
+    margin-bottom:20px;
+    background:linear-gradient(90deg,#1D1D1F,#FF8C00);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* SUB TITLE */
+.hero span{
+    color:var(--orange);
+}
+
+.hero p{
+    font-size:1.2rem;
+    color:var(--light);
+    margin-bottom:35px;
+}
+
+/* CTA BUTTON STYLE (optional feel) */
+.hero::after{
+    content:"";
+    position:absolute;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:40px 20px;
+    color:var(--light);
+    font-size:0.9rem;
+}
+
+/* RESPONSIVE DESIGN (Gisibu para sa Mobile kag Tablet) */
+@media(max-width:900px){
+    .hero h1{font-size:3.2rem;}
+}
+
+@media(max-width:768px){
+    nav {
+        padding: 15px 5%;
+    }
+
+    .menu-toggle {
+        display: flex; /* Gindayaw ang hamburger menu sa mobile */
+    }
+
+    /* Ginhimo naton nga dropdown ang mga links para malimpyo */
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        padding: 20px;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        border-bottom: 1px solid #eee;
+        gap: 15px;
+    }
+
+    /* Kon i-click ang hamburger button, magguwa ini nga class */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media(max-width:600px){
+    .hero h1{font-size:2.2rem;}
+    .hero p{font-size:1rem;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="shape one"></div>
+<div class="shape two"></div>
+
+<nav>
+
+    <div class="logo">PEDUTEM.</div>
+
+    <button class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="nav-links" id="nav-list">
+        <a href="aboutme.html">About</a>
+        <a href="digitalart.html">Digital Arts</a>
+        <a href="graphicdesign.html">Graphic Design</a>
+        <a href="uiux.html">UI Design</a>
+    </div>
+
+</nav>
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Digital Artist,<br>
+            Graphic Designer<br>
+            & UI/UX Designer
+        </h1>
+
+        <p>
+            I create modern digital experiences, branding, and creative visuals that combine simplicity with strong design thinking.
+        </p>
+
+    </div>
+
+</header>
+
+<footer>
+    © 2026 Marc Portfolio. All Rights Reserved.
+</footer>
+
+<script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    mobileMenu.addEventListener('click', () => {
+        navList.classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>
